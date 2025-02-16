@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brighter: hsl(220, 98%, 61%);
+  --color-grad-1: hsl(192, 100%, 67%);
+  --color-grad-2: hsl(280, 87%, 65%);
+  /* Light theme colors */
+  --color-light-primary: hsl(0, 0%, 98%);
+  --color-light-secondary-1: hsl(236, 33%, 92%);
+  --color-light-secondary-2: hsl(233, 11%, 84%);
+  --color-light-secondary-3: hsl(236, 9%, 61%);
+  --color-light-secondary-4: hsl(235, 19%, 35%);
+  /* Dark theme colors */
+  --color-dark-primary: hsl(235, 21%, 11%);
+  --color-dark-secondary-1: hsl(235, 24%, 19%)
+  --color-dark-secondary-2: hsl(234, 39%, 85%)
+  --color-dark-secondary-3: hsl(236, 33%, 92%)
+  --color-dark-secondary-4: hsl(234, 11%, 52%)
+  --color-dark-secondary-5: hsl(233, 14%, 35%)
+  --color-dark-secondary-6: hsl(237, 14%, 26%)
+}
