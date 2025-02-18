@@ -3,7 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-brighter: hsl(220, 98%, 61%);
+  --color-brighter-blue: hsl(220, 98%, 61%);
   --color-grad-1: hsl(192, 100%, 67%);
   --color-grad-2: hsl(280, 87%, 65%);
   /* Light theme colors */

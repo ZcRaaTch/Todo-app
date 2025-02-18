@@ -19,9 +19,9 @@ function ThemeButton() {
     <>
       <button onClick={toggleTheme}>
         {darkTheme ? (
-          <img src={moonLogo} alt="Sun Logo" className="w-6 h-6" />
+          <img src={moonLogo} alt="Moon icon" className="w-6 h-6" />
         ) : (
-          <img src={sunLogo} alt="Moon Logo" className="w-6 h-6 " />
+          <img src={sunLogo} alt="Sun icon" className="w-6 h-6 " />
         )}
       </button>
     </>
