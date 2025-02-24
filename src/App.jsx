@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { ThemeButton, TodoForm } from "./components/componentExport.js";
+import {
+  ThemeButton,
+  TodoForm,
+  TodoList,
+  Filter,
+} from "./components/componentExport.js";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,6 +20,8 @@ function App() {
           <ThemeButton />
         </div>
         <TodoForm />
+        <TodoList />
+        <Filter />
       </div>
 
       <p className=" z-20 text-center text-[var(--color-light-secondary-3)] dark:text-[var(--color-dark-secondary-5)]">
