@@ -20,10 +20,10 @@ function App() {
           <ThemeButton />
         </div>
         <TodoForm />
-        <TodoList />
-        <Filter />
       </div>
 
+      <TodoList />
+      <Filter />
       <p className=" z-20 text-center text-[var(--color-light-secondary-3)] dark:text-[var(--color-dark-secondary-5)]">
         Drag and drop to reorder list
       </p>

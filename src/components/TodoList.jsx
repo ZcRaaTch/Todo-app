@@ -10,7 +10,7 @@ function TodoList() {
   const dispatch = useDispatch();
   return (
     <>
-      <div className="w-[85%] mx-auto">
+      <div className="w-[85%] mx-auto min-h-[250px] max-h-[260px] -translate-y-[12.6rem]">
         <ul className="list-none rounded-lg overflow-hidden flex-col divide-y-[1px]">
           {todos.map((todo) => (
             <li
