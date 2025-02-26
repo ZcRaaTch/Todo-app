@@ -7,6 +7,7 @@ function TodoForm() {
   const dispatch = useDispatch();
   const addTodoHandler = (e) => {
     e.preventDefault();
+    if (!input.trim()) return;
     dispatch(addTodo(input));
     setInput("");
   };
@@ -28,6 +29,9 @@ function TodoForm() {
           className="border-none outline-none block w-full"
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") addTodoHandler(e);
+          }}
         />
       </form>
     </>
