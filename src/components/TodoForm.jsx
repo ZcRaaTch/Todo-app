@@ -15,7 +15,7 @@ function TodoForm() {
     <>
       <form
         onSubmit={addTodoHandler}
-        className="mx-auto mb-8 mt-10 flex gap-3 w-[85%] px-4 py-3.5 rounded-lg bg-[var(--color-light-primary)] dark:bg-[var(--color-dark-secondary-1)] "
+        className="mx-auto mb-5 mt-10 flex gap-3 w-[85%] px-4 py-3.5 rounded-lg bg-[var(--color-light-primary)] dark:bg-[var(--color-dark-secondary-1)] "
       >
         <button
           type="submit"

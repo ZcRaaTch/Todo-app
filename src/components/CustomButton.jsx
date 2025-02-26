@@ -5,7 +5,7 @@ function CustomButton({ children, type = "button", classname = "", ...props }) {
     <>
       <button
         type={type}
-        className={` border-none outline-none appearance-none ${classname}`}
+        className={` border-none outline-none appearance-none cursor-pointer ${classname}`}
         {...props}
       >
         {children}
