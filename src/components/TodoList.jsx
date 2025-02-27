@@ -1,6 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeTodo, toggleComplete } from "../store/todoSlice";
+import {
+  removeTodo,
+  toggleComplete,
+  removeCompleted,
+} from "../store/todoSlice";
 import crossIcon from "../assets/icon-cross.svg";
 import checkIcon from "../assets/icon-check.svg";
 import CustomButton from "./CustomButton";
@@ -38,7 +42,7 @@ function TodoList() {
               <p
                 className={`w-full flex-1 self-center ${
                   todo.completed
-                    ? "line-through line-clamp-6 text-[var(--color-light-secondary-3)] dark:text-[var(--color-dark-secondary-5)]"
+                    ? "line-through text-[var(--color-light-secondary-3)] dark:text-[var(--color-dark-secondary-5)]"
                     : "font-medium"
                 }`}
               >
@@ -53,8 +57,14 @@ function TodoList() {
             </li>
           ))}
           <li className="flex w-full p-3 justify-between  bg-[var(--color-light-primary)] dark:bg-[var(--color-dark-secondary-1)]">
-            <p className="text-[0.9rem]">{} items left</p>
-            <CustomButton type="button" classname="text-[0.9rem]">
+            <p className="text-[0.9rem]">
+              {todos.filter((todo) => !todo.completed).length} items left
+            </p>
+            <CustomButton
+              type="button"
+              classname="text-[0.9rem]"
+              onClick={() => dispatch(removeCompleted())}
+            >
               Clear Completed
             </CustomButton>
           </li>
