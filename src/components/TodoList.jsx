@@ -15,23 +15,38 @@ function TodoList() {
           {todos.map((todo) => (
             <li
               key={todo.id}
-              className="m-0 flex gap-4 w-full p-3 px-4 bg-[var(--color-light-primary)] dark:bg-[var(--color-dark-secondary-1)]"
+              className="m-0 flex gap-4 w-full min-h-[50px] p-3 px-4 bg-[var(--color-light-primary)] dark:bg-[var(--color-dark-secondary-1)]"
             >
               <label className="cursor-pointer flex items-center">
-                <input type="checkbox" className="hidden peer" />
+                <input
+                  type="checkbox"
+                  className="hidden peer"
+                  checked={todo.completed}
+                  onChange={() => dispatch(toggleComplete(todo.id))}
+                />
                 {/* Custom checkbox (Unchecked by default) */}
                 <div className="w-5 h-5 border-[1px] border-gray-400 rounded-full  flex items-center justify-center peer-checked:bg-gradient-to-r from-[var(--color-grad-1)] to-[var(--color-grad-2)] ">
                   <img
                     src={checkIcon}
                     alt="Checked"
-                    className="w-3 h-3 opacity-0 peer-checked:opacity-100"
+                    className={`w-3 h-3 ${
+                      todo.completed ? "opacity-100" : "opacity-0"
+                    } `}
                   />
                 </div>
               </label>
-              <p className="w-full flex-1">{todo.text}</p>
+              <p
+                className={`w-full flex-1 self-center ${
+                  todo.completed
+                    ? "line-through line-clamp-6 text-[var(--color-light-secondary-3)] dark:text-[var(--color-dark-secondary-5)]"
+                    : "font-medium"
+                }`}
+              >
+                {todo.text}
+              </p>
               <button
                 onClick={() => dispatch(removeTodo(todo.id))}
-                className=""
+                className="cursor-pointer"
               >
                 <img src={crossIcon} alt="delete icon" className="w-5 h-4" />
               </button>
