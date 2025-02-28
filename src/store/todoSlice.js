@@ -2,6 +2,7 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
   todos: [{ id: nanoid(), text: "Add Todo", completed: false }],
+  filters: "All",
 };
 
 export const todoSlice = createSlice({
@@ -30,12 +31,8 @@ export const todoSlice = createSlice({
     removeCompleted: (state) => {
       state.todos = state.todos.filter((todo) => !todo.completed);
     },
-    reorderTodos: (state, action) => {
-      const { oldIndex, newIndex } = action.payload;
-      if (oldIndex !== -1 && newIndex !== -1) {
-        const [movedItem] = state.todos.splice(oldIndex, 1);
-        state.todos.splice(newIndex, 0, movedItem);
-      }
+    setFilter: (state, action) => {
+      state.filters = action.payload;
     },
   },
 });
@@ -45,6 +42,6 @@ export const {
   removeTodo,
   toggleComplete,
   removeCompleted,
-  reorderTodos,
+  setFilter,
 } = todoSlice.actions;
 export default todoSlice.reducer;

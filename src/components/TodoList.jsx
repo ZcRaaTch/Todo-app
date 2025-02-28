@@ -4,7 +4,6 @@ import {
   removeTodo,
   toggleComplete,
   removeCompleted,
-  reorderTodos,
 } from "../store/todoSlice";
 import crossIcon from "../assets/icon-cross.svg";
 import checkIcon from "../assets/icon-check.svg";
@@ -12,12 +11,20 @@ import { CustomButton } from "./componentExport";
 
 function TodoList() {
   const todos = useSelector((state) => state.todos.todos);
+  const filters = useSelector((state) => state.todos.filters);
+
   const dispatch = useDispatch();
 
+  const filteredTodos = todos.filter((todo) => {
+    if (filters === "Active") return !todo.completed;
+    if (filters === "Completed") return todo.completed;
+    return true;
+  });
+
   return (
-    <div className="w-[85%] mx-auto min-h-[250px] max-h-[260px] -translate-y-[12.6rem]">
+    <div className="w-[85%] lg:w-[45%] sm:w-[75%] md:w-[50%] mx-auto min-h-[250px] max-h-[260px] -translate-y-[12.6rem]">
       <ul className="list-none rounded-lg overflow-hidden flex-col divide-y-[1px]">
-        {todos.map((todo) => (
+        {filteredTodos.map((todo) => (
           <li
             key={todo.id}
             className="m-0 flex gap-4 w-full min-h-[50px] p-3 px-4 bg-[var(--color-light-primary)] dark:bg-[var(--color-dark-secondary-1)]"
@@ -44,7 +51,7 @@ function TodoList() {
               className={`w-full flex-1 self-center ${
                 todo.completed
                   ? "line-through text-[var(--color-light-secondary-3)] dark:text-[var(--color-dark-secondary-5)]"
-                  : "font-medium"
+                  : "font-medium text-white"
               }`}
             >
               {todo.text}
