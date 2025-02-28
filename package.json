@@ -2,7 +2,7 @@
   "name": "space-tourism",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.com/ZcRaaTch/Todo-app",
+  "homepage": "https://zcraatch.github.io/Todo-app/",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
