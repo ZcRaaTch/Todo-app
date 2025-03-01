@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addTodo, setTodos } from "./store/todoSlice";
 import {
   ThemeButton,
   TodoForm,
@@ -7,7 +9,17 @@ import {
 } from "./components/componentExport.js";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const todos = useSelector((state) => state.todos.todos);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const storedTodos = localStorage.getItem("todos");
+    if (storedTodos) {
+      dispatch(setTodos(JSON.parse(storedTodos)));
+    }
+  }, [dispatch]);
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <>

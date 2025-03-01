@@ -34,6 +34,9 @@ export const todoSlice = createSlice({
     setFilter: (state, action) => {
       state.filters = action.payload;
     },
+    setTodos: (state, action) => {
+      state.todos = action.payload;
+    },
   },
 });
 
@@ -43,5 +46,6 @@ export const {
   toggleComplete,
   removeCompleted,
   setFilter,
+  setTodos,
 } = todoSlice.actions;
 export default todoSlice.reducer;
