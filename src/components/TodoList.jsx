@@ -22,12 +22,20 @@ function TodoList() {
   });
 
   return (
-    <div className="w-[85%] lg:w-[45%] sm:w-[75%] md:w-[50%] rounded-lg overflow-hidden mx-auto -translate-y-[12.6rem]">
-      <ul className="list-none overflow-y-scroll flex-col max-h-[350px] divide-y-[1px] ">
+    <div className="w-[85%] lg:w-[45%] sm:w-[75%] md:w-[50%] rounded-lg overflow-hidden mx-auto -translate-y-[12.6rem] lg:-translate-y-[14.6rem] xl:-translate-y-[17.6rem]">
+      <ul
+        className="list-none overflow-y-scroll flex-col max-h-[350px] xl:max-h-[460px] lg:max-h-[420px] divide-y-[1px] [&::-webkit-scrollbar]:w-2
+  [&::-webkit-scrollbar-track]:rounded-full
+  [&::-webkit-scrollbar-track]:bg-gray-100
+  [&::-webkit-scrollbar-thumb]:rounded-full
+  [&::-webkit-scrollbar-thumb]:bg-gray-300
+  dark:[&::-webkit-scrollbar-track]:bg-[var(--color-dark-secondary-1)]
+  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
+      >
         {filteredTodos.map((todo) => (
           <li
             key={todo.id}
-            className="m-0 flex gap-4 w-full min-h-[50px] p-3 px-4 bg-[var(--color-light-primary)] dark:bg-[var(--color-dark-secondary-1)]"
+            className="m-0 flex gap-4 w-full min-h-[50px] lg:min-h-16 p-3 px-4 bg-[var(--color-light-primary)] dark:bg-[var(--color-dark-secondary-1)]"
           >
             <label className="cursor-pointer flex items-center">
               <input
@@ -48,7 +56,7 @@ function TodoList() {
               </div>
             </label>
             <p
-              className={`w-full flex-1 self-center ${
+              className={`w-full flex-1 self-center lg:text-[1.2rem] ${
                 todo.completed
                   ? "line-through text-[var(--color-light-secondary-3)] dark:text-[var(--color-dark-secondary-5)]"
                   : "font-medium text-white"
@@ -66,13 +74,13 @@ function TodoList() {
         ))}
       </ul>
       <div className="flex w-full p-3 justify-between items-center border-t-[1px] border-t-white bg-[var(--color-light-primary)] dark:bg-[var(--color-dark-secondary-1)]">
-        <p className="text-[0.9rem]">
+        <p className="text-[0.9rem] lg:text-[1rem]">
           {todos.filter((todo) => !todo.completed).length} items left
         </p>
         <Filter classname="hidden lg:flex lg:p-0" />
         <CustomButton
           type="button"
-          classname="text-[0.9rem]"
+          classname="text-[0.9rem] lg:text-lg"
           onClick={() => dispatch(removeCompleted())}
         >
           Clear Completed
