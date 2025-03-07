@@ -7,7 +7,7 @@ import {
 } from "../store/todoSlice";
 import crossIcon from "../assets/icon-cross.svg";
 import checkIcon from "../assets/icon-check.svg";
-import { CustomButton } from "./componentExport";
+import { CustomButton, Filter } from "./componentExport";
 
 function TodoList() {
   const todos = useSelector((state) => state.todos.todos);
@@ -22,8 +22,8 @@ function TodoList() {
   });
 
   return (
-    <div className="w-[85%] lg:w-[45%] sm:w-[75%] md:w-[50%] mx-auto min-h-[250px] max-h-[260px] -translate-y-[12.6rem]">
-      <ul className="list-none rounded-lg overflow-hidden flex-col divide-y-[1px]">
+    <div className="w-[85%] lg:w-[45%] sm:w-[75%] md:w-[50%] rounded-lg overflow-hidden mx-auto -translate-y-[12.6rem]">
+      <ul className="list-none overflow-y-scroll flex-col max-h-[350px] divide-y-[1px] ">
         {filteredTodos.map((todo) => (
           <li
             key={todo.id}
@@ -64,19 +64,20 @@ function TodoList() {
             </button>
           </li>
         ))}
-        <li className="flex w-full p-3 justify-between  bg-[var(--color-light-primary)] dark:bg-[var(--color-dark-secondary-1)]">
-          <p className="text-[0.9rem]">
-            {todos.filter((todo) => !todo.completed).length} items left
-          </p>
-          <CustomButton
-            type="button"
-            classname="text-[0.9rem]"
-            onClick={() => dispatch(removeCompleted())}
-          >
-            Clear Completed
-          </CustomButton>
-        </li>
       </ul>
+      <div className="flex w-full p-3 justify-between items-center border-t-[1px] border-t-white bg-[var(--color-light-primary)] dark:bg-[var(--color-dark-secondary-1)]">
+        <p className="text-[0.9rem]">
+          {todos.filter((todo) => !todo.completed).length} items left
+        </p>
+        <Filter classname="hidden lg:flex lg:p-0" />
+        <CustomButton
+          type="button"
+          classname="text-[0.9rem]"
+          onClick={() => dispatch(removeCompleted())}
+        >
+          Clear Completed
+        </CustomButton>
+      </div>
     </div>
   );
 }

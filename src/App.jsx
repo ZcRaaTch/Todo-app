@@ -23,10 +23,10 @@ function App() {
 
   return (
     <>
-      <div className="bg-[url('/images/bg-mobile-light.jpg')] dark:bg-[url('/images/bg-mobile-dark.jpg')] sm:bg-[url('/images/bg-desktop-light.jpg')] sm:dark:bg-[url('/images/bg-desktop-dark.jpg')] w-full h-[13.7rem] bg-[length:100%_100%] bg-no-repeat"></div>
-      <div className="z-10 -translate-y-[12.6rem] w-full">
+      <div className="bg-[url('/images/bg-mobile-light.jpg')] dark:bg-[url('/images/bg-mobile-dark.jpg')] sm:bg-[url('/images/bg-desktop-light.jpg')] sm:dark:bg-[url('/images/bg-desktop-dark.jpg')] w-full h-[13.7rem] lg:h-64 xl:h-80 bg-[length:100%_100%] bg-no-repeat"></div>
+      <div className="z-10 -translate-y-[12.6rem] lg:-translate-y-[17.6rem] w-full">
         <div className=" mx-auto my-6 mb flex justify-between w-[85%] sm:w-[75%] lg:w-[45%] md:w-[50%]">
-          <h1 className="font-medium tracking-[0.5rem] text-[var(--color-light-primary)] text-3xl">
+          <h1 className="font-medium tracking-[0.5rem] lg:tracking-[0.7rem] text-[var(--color-light-primary)] text-3xl lg:text-5xl">
             TODO
           </h1>
           <ThemeButton />
@@ -35,8 +35,8 @@ function App() {
       </div>
 
       <TodoList />
-      <Filter />
-      <p className=" z-20 text-center text-[var(--color-light-secondary-3)] dark:text-[var(--color-dark-secondary-5)]">
+      <Filter classname="lg:hidden -translate-y-[12.6rem]" />
+      <p className="  text-center text-[var(--color-light-secondary-3)] dark:text-[var(--color-dark-secondary-5)] lg:my-8 -translate-y-[12.6rem]">
         Drag and drop to reorder list
       </p>
     </>
