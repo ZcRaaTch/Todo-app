@@ -35,7 +35,7 @@ export const todoSlice = createSlice({
       state.filters = action.payload;
     },
     setTodos: (state, action) => {
-      state.todos = action.payload;
+      state.todos = [...action.payload];
     },
   },
 });
